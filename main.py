@@ -1,7 +1,8 @@
 import psutil
 import time
 import random
-import http.client, urllib
+import http.client 
+import urllib
 
 from config import token, user
 from phrases import phrases
@@ -36,11 +37,9 @@ def sendNotif():
         print(f"An error occurred during the HTTP request: {e}")
     finally:
         conn.close()
-        
-vscIsRunning = ("Code.exe" in (i.name() for i in psutil.process_iter()) )
 
 while True:
     vscIsRunning = ('Code.exe' in (i.name() for i in psutil.process_iter()) )
-    if(vscIsRunning):
+    if vscIsRunning:
         sendNotif()
-    time.sleep(amountOfTime*60)
+    time.sleep(amountOfTime * 60)
